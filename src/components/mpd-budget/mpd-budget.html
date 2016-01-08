@@ -1,0 +1,285 @@
+<div class="mpd-budget">
+	<form name="budgetForm">
+		<nav class="navbar navbar-inverse navbar-section">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<span class="navbar-brand" translate>Support Budget for <strong>{{budget.person_name}}</strong></span>
+				</div>
+				<div class="collapse navbar-collapse">
+					<div class="navbar-text navbar-right" ng-switch="budget.status">
+						<span ng-switch-when="Draft" class="label label-info budget-status" translate>Draft</span>
+						<span ng-switch-when="Submitted" class="label label-warning budget-status" translate>Submitted</span>
+						<span ng-switch-when="Approved" class="label label-primary budget-status" translate>Approved</span>
+						<span ng-switch-when="Processed" class="label label-success budget-status" translate>Processed</span>
+						<span ng-switch-when="Cancelled" class="label label-danger budget-status" translate>Cancelled</span>
+					</div>
+				</div>
+			</div>
+		</nav>
+		<div class="budget-well">
+			<div class="line-item">
+				<div class="col-xs-3">
+					<div class="title" translate>Start Date</div>
+				</div>
+				<div class="col-xs-3">
+					<input type="month" class="form-control" ng-model="values.period_start" min="{{minPeriodStart}}" ng-disabled="!editable">
+				</div>
+			</div>
+			<div class="line-item" ng-if="budget.status == 'Approved' || budget.status == 'Processed'">
+				<div class="col-xs-3">
+					<div class="title" translate>Approved By</div>
+				</div>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" value="{{budget.approved_by_name}}" disabled>
+				</div>
+				<div class="col-xs-3">
+					<input type="date" class="form-control" value="{{budget.approved_on}}" disabled>
+				</div>
+			</div>
+			<div class="line-item" ng-if="budget.status == 'Processed'">
+				<div class="col-xs-3">
+					<div class="title" translate>Processed By</div>
+				</div>
+				<div class="col-xs-3">
+					<input type="text" class="form-control" value="{{budget.processed_by_name}}" disabled>
+				</div>
+				<div class="col-xs-3">
+					<input type="date" class="form-control" value="{{budget.processed_on}}" disabled>
+				</div>
+			</div>
+
+		</div>
+
+		<div ng-repeat="section in form.sections track by $index | orderBy:'view_order'" mpd-budget-section></div>
+
+		<nav class="navbar navbar-inverse navbar-section">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<span class="navbar-brand">Totals</span>
+				</div>
+			</div>
+		</nav>
+		<div class="budget-well">
+			<div class="line-item">
+				<div class="col-xs-9">
+
+					<div class="row">
+						<div class="col-xs-4 col-xs-offset-4 column-header" translate>Monthly</div>
+						<div class="col-xs-4 column-header">Yearly</div>
+					</div>
+
+					<!-- Subtotal -->
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="title" translate>Subtotal</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budgetSubtotal() | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{values.subtotal * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Assessment -->
+					<div class="row" ng-if="budget.assessment_formula">
+						<div class="col-xs-4">
+							<div class="title" translate>Assessment</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.assessment | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.assessment * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- MPD Goal -->
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="title" translate>MPD Goal</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.total_expense_budget | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.total_expense_budget * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Subsidy -->
+					<div class="row" ng-if="budget.subsidy_formula">
+						<div class="col-xs-4">
+							<div class="title" translate>Subsidy</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.subsidy | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.subsidy * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Current Support -->
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="title" translate>Current Support</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.current_support_level | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.current_support_level * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Total to Raise -->
+					<div class="row" ng-if="budget.subsidy_formula">
+						<div class="col-xs-4">
+							<div class="title" translate>Total to Raise</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.total_to_raise | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.total_to_raise * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+
+					<!-- Amount to Discover -->
+					<div class="row">
+						<div class="col-xs-4">
+							<div class="title" translate>Amount to Discover</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{budget.total_to_raise - budget.current_support_level | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+						<div class="col-xs-4">
+							<div class="input-group">
+								<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+								<input type="number"
+									   class="form-control"
+									   placeholder="{{'Total' | translate}}"
+									   value="{{(budget.total_to_raise - budget.current_support_level) * 12 | budgetValue}}"
+									   disabled>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-xs-3">
+					<div class="percent-to-goal" ng-if="budget.total_to_raise">{{(budget.current_support_level / budget.total_to_raise) * 100 | number:1}}%</div>
+				</div>
+			</div>
+
+			<div class="line-item" ng-if="form.compliance && budget.status !== 'Draft'">
+				<div class="col-xs-9 col-xs-offset-3">
+					<div class="checkbox">
+						<label>
+							<input type="checkbox" checked disabled>
+							{{form.compliance}}
+						</label>
+					</div>
+				</div>
+			</div>
+
+			<div class="line-item help">
+				<div class="col-xs-6 col-xs-push-3">
+					<p class="help-block">All values in local currency ({{form.currency_code || 'USD'}}).</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="well" ng-transclude></div>
+	</form>
+</div>

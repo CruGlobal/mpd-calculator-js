@@ -1,0 +1,151 @@
+/* Application CSS */
+
+body {
+	padding-top: @navbar-height;
+}
+
+.navbar-brand {
+	font-size: 24px;
+}
+
+.sk-container {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 200px;
+}
+
+.sk-cube-grid {
+	width: 60px;
+	height: 60px;
+	margin: 10px auto;
+}
+
+.sk-cube-grid .sk-cube {
+	background-color: #fff;
+}
+
+.sidebar {
+	display: none;
+	color: @body-bg;
+}
+
+@media (min-width: @screen-sm-min) {
+	.sidebar {
+		position: fixed;
+		top: @navbar-height + 1;
+		bottom: 0;
+		left: 0;
+		z-index: 1000;
+		padding: 0;
+		display: block;
+		overflow-x: hidden;
+		overflow-y: auto;
+		background-color: @gray-lighter;
+		border-right: 1px solid @gray-light;
+
+		.content {
+			padding: 20px;
+		}
+	}
+}
+
+.nav-sidebar {
+	margin: 20px -21px 20px -20px;
+}
+
+.nav-sidebar .label {
+	font-size: 15px;
+}
+
+.nav-sidebar > li > div,
+.nav-sidebar > li > a {
+	padding-right: 40px;
+	padding-left: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nav-sidebar > .active > a,
+.nav-sidebar > .active > a:hover,
+.nav-sidebar > .active > a:focus {
+	color: #fff;
+	background-color: @brand-success;
+
+	.label-success {
+		background-color: darken(@brand-success, 12.5%)
+	}
+}
+
+.nav-sidebar a:hover,
+.nav-sidebar a:focus {
+	color: #ffffff;
+}
+
+.nav-sidebar li.header {
+	color: @body-bg;
+	padding: 3px 20px;
+	white-space: nowrap;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.nav-sidebar .header:first-child {
+	font-weight: bold;
+}
+
+.nav-sidebar .header .badge {
+	font-size: 75%;
+	cursor: pointer;
+}
+
+.nav-sidebar li.description {
+	color: @body-bg;
+	padding: 1px 20px;
+	font-size: @font-size-h6;
+}
+
+.person + .period {
+	font-size: 75%;
+	font-variant: small-caps;
+	padding-left: 15px;
+}
+
+.main {
+	padding: 20px;
+}
+
+@media (min-width: @screen-sm-min) {
+	.main {
+		padding-right: 40px;
+		padding-left: 40px;
+	}
+}
+
+.main .page-header {
+	margin-top: 0;
+}
+
+.ministry-form {
+	width: 250px;
+
+	.form-group {
+		width: 100%;
+	}
+
+	.dropdown-menu {
+		width: 220px;
+	}
+
+	button {
+		text-align: left;
+	}
+
+	.form-control {
+		width: 100%;
+	}
+}
+
+

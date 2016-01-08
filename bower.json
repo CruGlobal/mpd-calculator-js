@@ -1,0 +1,37 @@
+{
+  "name": "mpd-calculator-js",
+  "version": "1.0.0",
+  "homepage": "https://github.com/CruGlobal/mpd-calculator-js",
+  "authors": [
+    "Brian Zoetewey <brian.zoetewey@ccci.org>"
+  ],
+  "description": "MPD Calculator Angular SPA",
+  "license": "BSD-3-Clause",
+  "private": true,
+  "dependencies": {
+    "angular": "~1.3",
+    "angular-bootstrap": "~0.13",
+    "angular-gettext": "~2.1.0",
+    "angular-growl-v2": "~0.7.5",
+    "angular-i18n": "~1.3",
+    "angular-loader": "~1.3",
+    "angular-resource": "~1.3",
+    "angular-ui-router": "~0.2",
+    "angular-ui-sortable": "~0.13.4",
+    "bootstrap": "~3.3",
+    "bootswatch": "v3.3.5+4",
+    "iframe-resizer": "2.8.4",
+    "moment": "~2",
+    "ngstorage": "~0.3.7",
+    "underscore": "~1",
+    "webshim": "~1.15.8",
+    "ui-select": "angular-ui-select#~0.13.1",
+    "angular-sanitize": "~1.3",
+    "SpinKit": "spinkit#~1.2.2"
+  },
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ]
+}

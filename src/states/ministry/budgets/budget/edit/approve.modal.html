@@ -1,0 +1,40 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title" translate>Submit Budget for Approval</h3>
+	</div>
+	<div class="modal-body">
+		<form name="approvalForm">
+
+			<p translate>Please provide the Email address of the person who should approve this budget.</p>
+
+			<div class="container-fuild form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label" for="approver_email">Approver Email</label>
+
+					<div class="col-sm-9">
+						<input type="email"
+							   class="form-control"
+							   id="approver_email"
+							   placeholder="{{'Email Address' | translate}}"
+							   ng-model="budget.approver_email"
+							   required>
+					</div>
+				</div>
+				<div class="form-group" ng-if="form.compliance">
+					<div class="col-sm-offset-3 col-sm-9">
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="compliance" required> {{form.compliance}}
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="submit()" ng-disabled="approvalForm.$invalid">Submit for Approval</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+</div>

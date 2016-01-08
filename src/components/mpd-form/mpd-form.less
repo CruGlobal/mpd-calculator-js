@@ -1,0 +1,85 @@
+.editForm .navbar-section.info {
+	background-color: @brand-info;
+}
+
+.navbar-form input,
+.navbar-form button {
+	margin-top: -1px;
+	padding-bottom: @padding-base-vertical + 1;
+}
+
+.navbar-section input[type=text] {
+	width: 300px;
+}
+
+.navbar-brand.move-handle {
+	padding-top: 6.5px;
+	cursor: move;
+}
+
+.editForm .sortable .line-item {
+	padding-bottom: 12px;
+	padding-top: 12px;
+	border-bottom: 1px solid @gray-light;
+}
+
+.editForm .budget-well > .line-item:last-of-type {
+	padding-bottom: 0;
+	border-bottom: 0 none transparent;
+}
+
+.editForm .line-item {
+	background-color: lighten(@gray-light, 12.5%);
+}
+
+.editForm input + mpd-formula .input-group,
+.editForm select + mpd-formula .input-group,
+.editForm mpd-formula + mpd-formula .input-group,
+.editForm input + input {
+	margin-top: 4px;
+}
+
+.col-xs-1.move-handle {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	cursor: move;
+
+	.glyphicon {
+		font-size: 24px;
+	}
+}
+
+.btn-token {
+	margin: 2px;
+}
+
+.maths {
+	.btn-token {
+		margin: 0;
+	}
+
+	td {
+		padding: 2px !important;
+	}
+
+	td.tall .btn-token {
+		height: 65px;
+	}
+}
+
+.modal-body.formula-editor {
+	background-color: @body-bg;
+}
+
+.tab-wrapper {
+	border: 1px solid @nav-tabs-justified-active-link-border-color;
+	border-top-width: 0;
+}
+
+.editForm .ui-sortable-helper {
+	border: 1px solid @gray-light;
+	-webkit-box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.75);
+	-moz-box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.75);
+	box-shadow: 4px 4px 15px 0 rgba(0, 0, 0, 0.75);
+}

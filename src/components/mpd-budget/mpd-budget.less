@@ -1,0 +1,104 @@
+.navbar-section {
+	border-radius: @navbar-border-radius @navbar-border-radius 0 0;
+	margin-bottom: 0;
+}
+
+.navbar-section + .budget-well {
+	margin-top: 0;
+	border-radius: 0 0 @navbar-border-radius @navbar-border-radius;
+	background-color: lighten(@gray-light, 12.5%);
+}
+
+.navbar-inverse .label-primary {
+	background-color: darken(@brand-primary, 12.5%);
+}
+
+.budget-well {
+	.well;
+	margin-top: 0;
+	border-radius: 0 0 @navbar-border-radius @navbar-border-radius;
+	background-color: lighten(@gray-light, 12.5%);
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.mpd-budget .line-item:first-of-type {
+	margin-top: 19px;
+}
+
+.line-item {
+	.row;
+	display: flex;
+	align-items: center;
+	margin: 4px 0;
+}
+
+.line-item .row {
+	margin: 4px 0;
+}
+
+.budget-well .line-item:last-child {
+	margin-bottom: 19px;
+}
+
+.budget-well .line-item.help {
+	margin: 5px 0;
+	text-align: center;
+}
+
+.line-item.total {
+	margin-top: 4px;
+	padding-top: 4px;
+	border-top: 1px solid @gray-light;
+}
+
+.line-item .title {
+	display: block;
+	width: 100%;
+	height: @input-height-base;
+	padding: @padding-base-vertical 4px;
+	font-size: @font-size-base;
+	line-height: @line-height-base;
+	color: @text-color;
+	background-image: none;
+	border: 1px solid transparent;
+	text-align: right;
+}
+
+.line-item input[type=number],
+.line-item .question-name input {
+	text-align: right;
+}
+
+.line-item.total .title {
+	font-weight: bold;
+}
+
+.line-item.total input {
+	background-color: @brand-primary !important;
+	color: #ffffff;
+	font-weight: bold;
+}
+
+.line-item .title.gross {
+	font-size: @font-size-small;
+}
+
+.percent-to-goal {
+	text-align: center;
+	font-weight: bold;
+	font-size: 5vw;
+}
+
+.budget-status {
+	font-size: 15px;
+}
+
+.budget-actions .btn + .btn {
+	margin-left: 3px;
+}
+
+.column-header {
+	text-align: center;
+	font-variant: small-caps;
+}

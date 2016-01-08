@@ -1,0 +1,20 @@
+<ul class="nav nav-sidebar" ng-show="forms().length">
+	<li class="header">
+		<span>{{title}}</span>
+		<span class="badge btn-default" ng-click="collapsed = !collapsed">
+			<span class="glyphicon" ng-class="{'glyphicon-plus': collapsed, 'glyphicon-minus': (!collapsed)}"></span>
+		</span>
+	</li>
+	<li class="description">{{description}}</li>
+	<li ng-if="!collapsed"
+		ng-repeat="form in forms()"
+		ui-sref-active="active">
+		<a ui-sref="editForm({mpd_def_id: form.mpd_def_id})">
+			<span>{{form.name}}</span>
+			<span>
+				<span ng-if="form.is_global" class="label label-success" translate>Global</span>
+				<span ng-if="form.active" class="label label-primary" translate>Active</span>
+			</span>
+		</a>
+	</li>
+</ul>

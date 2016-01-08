@@ -1,0 +1,20 @@
+<form class="navbar-form navbar-right ministry-form">
+	<button type="button"
+			class="btn btn-default btn-block"
+			ng-if="!editable"
+			ng-click="toggleInput()">{{ministry.name}}
+	</button>
+	<div class="form-group" ng-if="editable">
+		<input type="text"
+			   id="changeMinistry"
+			   name="changeMinistry"
+			   class="form-control"
+			   placeholder="{{'Ministry' | translate}}"
+			   ng-model="ministry"
+			   typeahead="ministry as ministry.name for ministry in ministries | filter:{name:$viewValue} | limitTo:8"
+			   typeahead-editable="false"
+			   typeahead-on-select="onSelectMinistry($item, $model, $label)"
+			   ng-keydown="cancelOnESC($event.keyCode)"
+			   required>
+	</div>
+</form>

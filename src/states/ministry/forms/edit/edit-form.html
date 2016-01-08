@@ -1,0 +1,20 @@
+<div>
+	<div class="page-header">
+		<h3>
+			<span ng-if="form.mpd_def_id" translate>Edit a Form</span>
+			<span ng-if="!form.mpd_def_id" translate>Create a Form</span>
+		</h3>
+	</div>
+
+	<ng-form name="editForm">
+		<mpd-form form="form" is-editable="isEditable">
+			<div class="row budget-actions">
+				<div class="col-xs-12">
+					<a ui-sref="forms" class="btn btn-warning" translate>Cancel</a>
+					<button type="button" class="btn btn-info pull-right" ng-if="isEditable" ng-click="saveForm()" translate>Save Form</button>
+					<button type="button" class="btn btn-success pull-right" ng-if="form.mpd_def_id && !form.is_global" ng-click="shareForm()" translate>Share Form</button>
+				</div>
+			</div>
+		</mpd-form>
+	</ng-form>
+</div>

@@ -1,0 +1,108 @@
+<div class="col-xs-1">{{section.view_order}}.{{question.view_order}}</div>
+
+<div class="col-xs-2 question-name" ng-switch="question.name">
+	<input type="text" class="form-control" ng-switch-when="" placeholder="Name" ng-model="answer.name" ng-disabled="!editable">
+
+	<div class="title" ng-switch-default>{{question.name}}</div>
+	<div class="title gross" ng-if="question.type == 'net_month' || question.type == 'net_year'" translate>GROSS</div>
+</div>
+
+<div class="col-xs-3">
+	<div class="input-group" ng-switch="question.type">
+		<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+		<input ng-switch-when="basic_month"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Monthly' | translate}}"
+			   min="{{evalFormula(question.min)}}"
+			   max="{{evalFormula(question.max)}}"
+			   ng-model="values.model"
+			   ng-disabled="!editable"
+			   required>
+		<input ng-switch-when="net_month"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Monthly NET' | translate}}"
+			   min="{{evalFormula(question.min)}}"
+			   max="{{evalFormula(question.max)}}"
+			   ng-model="values.model"
+			   ng-disabled="!editable"
+			   required>
+		<input ng-switch-when="basic_year"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Monthly' | translate}}"
+			   value="{{answer.value | budgetValue}}"
+			   disabled>
+		<input ng-switch-when="net_year"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Monthly NET' | translate}}"
+			   value="{{answer.value - answer.tax | budgetValue}}"
+			   disabled>
+		<input ng-switch-when="calculated"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Monthly' | translate}}"
+			   value="{{calculated() | budgetValue}}"
+			   disabled>
+	</div>
+	<div class="input-group" ng-if="question.type == 'net_month' || question.type == 'net_year'">
+		<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+		<input type="number"
+			   class="form-control"
+			   placeholder="{{'Monthy Gross' | translate}}"
+			   value="{{answer.value | budgetValue}}"
+			   disabled>
+	</div>
+</div>
+<div class="col-xs-3">
+	<div class="input-group" ng-switch="question.type">
+		<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+		<input ng-switch-when="basic_month"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly' | translate}}"
+			   value="{{answer.value * 12 | budgetValue}}"
+			   disabled>
+		<input ng-switch-when="net_month"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly NET' | translate}}"
+			   value="{{(answer.value - answer.tax) * 12 | budgetValue}}"
+			   disabled>
+		<input ng-switch-when="basic_year"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly' | translate}}"
+			   min="{{evalFormula(question.min)}}"
+			   max="{{evalFormula(question.max)}}"
+			   ng-model="values.model"
+			   ng-disabled="!editable"
+			   required>
+		<input ng-switch-when="net_year"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly NET' | translate}}"
+			   min="{{evalFormula(question.min)}}"
+			   max="{{evalFormula(question.max)}}"
+			   ng-model="values.model"
+			   ng-disabled="!editable"
+			   required>
+		<input ng-switch-when="calculated"
+			   type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly' | translate}}"
+			   value="{{answer.value * 12 | budgetValue}}"
+			   disabled>
+	</div>
+	<div class="input-group" ng-if="question.type == 'net_month' || question.type == 'net_year'">
+		<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+		<input type="number"
+			   class="form-control"
+			   placeholder="{{'Yearly Gross' | translate}}"
+			   value="{{answer.value * 12 | budgetValue}}"
+			   disabled>
+	</div>
+</div>
+<div class="col-xs-3">{{question.help}}</div>

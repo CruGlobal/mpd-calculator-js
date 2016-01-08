@@ -1,0 +1,14 @@
+<form class="navbar-form navbar-right ministry-form">
+	<div class="form-group" ng-if="editable">
+		<input type="text"
+			   id="changeMinistry"
+			   name="changeMinistry"
+			   class="form-control"
+			   placeholder="{{'Begin Typing. . .' | translate}}"
+			   ng-model="ministry"
+			   typeahead="ministry as ministry.name for ministry in ministries | filter:{name:$viewValue} | limitTo:8"
+			   typeahead-editable="false"
+			   typeahead-on-select="onSelectMinistry($item, $model, $label)"
+			   required>
+	</div>
+</form>

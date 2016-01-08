@@ -1,0 +1,24 @@
+<ul class="nav nav-sidebar" ng-show="budgets().length">
+	<li class="header">
+		<span>{{title}}</span>
+		<!--<span ng-if="visible"><input type="text" class="form-control input-sm" placeholder="Search"></span>-->
+		<span class="badge btn-default" ng-click="visible = !visible">
+			<span class="glyphicon" ng-class="{'glyphicon-minus': visible, 'glyphicon-plus': (!visible)}"></span>
+		</span>
+	</li>
+	<li ng-if="visible"
+		ng-repeat="budget in budgets()"
+		ui-sref-active="active">
+		<a ui-sref="editBudget({mpd_budget_id: budget.mpd_budget_id})" ng-switch="budget.status">
+			<span>
+				<div ng-if="showPersonName" class="person">{{budget.person_name}}</div>
+				<div class="period">{{budget.period_start | period}}</div>
+			</span>
+			<span ng-switch-when="Draft" class="label label-info" translate>Draft</span>
+			<span ng-switch-when="Submitted" class="label label-warning" translate>Submitted</span>
+			<span ng-switch-when="Approved" class="label label-primary" translate>Approved</span>
+			<span ng-switch-when="Processed" class="label label-success" translate>Processed</span>
+			<span ng-switch-when="Cancelled" class="label label-danger" translate>Cancelled</span>
+		</a>
+	</li>
+</ul>

@@ -1,0 +1,25 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle collapsed" aria-expanded="false" aria-controls="navbar">
+				<span class="sr-only" translate>Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" translate>MPD Calculator</a>
+		</div>
+
+		<div>
+			<p class="navbar-text" ui-view="title"></p>
+
+			<div ui-view="ministry"></div>
+		</div>
+	</div>
+</nav>
+<div class="container-fluid" ng-class="$state.current.name">
+	<div class="row">
+		<div class="col-sm-3 sidebar" ui-view="sidebar"></div>
+		<div class="col-sm-9 col-sm-offset-3 main" ui-view></div>
+	</div>
+</div>

@@ -1,0 +1,47 @@
+<div>
+	<nav class="navbar navbar-inverse navbar-section">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<span class="navbar-brand">{{section.name}}</span>
+			</div>
+		</div>
+	</nav>
+	<div class="budget-well">
+		<div class="row">
+			<div class="col-xs-3 col-xs-offset-3 column-header" translate>Monthly</div>
+			<div class="col-xs-3 column-header">Yearly</div>
+		</div>
+
+		<div class="line-item" ng-repeat="question in section.questions | orderBy:'view_order'" mpd-budget-question></div>
+		<div class="line-item total">
+			<div class="col-xs-3">
+				<div class="title">{{section.name}}</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+					<input type="number"
+						   class="form-control"
+						   placeholder="{{'Total' | translate}}"
+						   value="{{sectionTotal() | budgetValue}}"
+						   disabled>
+				</div>
+			</div>
+			<div class="col-xs-3">
+				<div class="input-group">
+					<span class="input-group-addon">{{form.currency_symbol || '$'}}</span>
+					<input type="number"
+						   class="form-control"
+						   placeholder="{{'Total' | translate}}"
+						   value="{{total * 12 | budgetValue}}"
+						   disabled>
+				</div>
+			</div>
+		</div>
+		<div class="line-item help">
+			<div class="col-xs-6 col-xs-push-3">
+				<p class="help-block" translate>All values in local currency ({{form.currency_code || 'USD'}}).</p>
+			</div>
+		</div>
+	</div>
+</div>

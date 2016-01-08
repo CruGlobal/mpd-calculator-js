@@ -1,0 +1,28 @@
+<div>
+	<div class="page-header">
+		<div class="clearfix">
+			<div class="navbar-form navbar-right">
+				<div class="form-group">
+					<label>Budget Form</label>
+					<select class="form-control" ng-model="budget.mpd_def_id" ng-options="form.mpd_def_id as form.name for form in forms"></select>
+				</div>
+			</div>
+			<h3>
+				<span translate>Create a Budget</span>
+			</h3>
+		</div>
+	</div>
+
+	<ng-form name="createForm">
+		<mpd-budget ng-model="budget" mpd-budget-form="form" mpd-budget-editable="isEditable">
+			<div class="row">
+				<div class="col-xs-2">
+					<a ui-sref="budgets" class="btn btn-warning btn-block" translate>Cancel</a>
+				</div>
+				<div class="col-xs-3 pull-right">
+					<button type="button" class="btn btn-info btn-block" ng-click="saveDraft()" translate>Save Draft</button>
+				</div>
+			</div>
+		</mpd-budget>
+	</ng-form>
+</div>

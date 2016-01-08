@@ -1,0 +1,135 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title" translate>Formula Editor - {{labels.name || labels.placeholder}}</h3>
+	</div>
+	<div class="modal-body formula-editor">
+		<p>{{labels.description}}</p>
+
+		<div class="container-fuild form-horizontal">
+			<div class="form-group">
+				<label for="formulaEditor">Formula</label>
+				<input type="text" class="form-control" id="formulaEditor" ng-model="formula" placeholder="{{labels.placeholder}}">
+			</div>
+			<!--<div class="form-group">
+				<label>Normalized Formula</label>
+				<input type="text" class="form-control" ng-model="normalizedFormula" disabled>
+			</div>-->
+			<div class="row tabs">
+				<tabset justified="true">
+					<tab heading="Edit">
+						<div class="tab-wrapper clearfix">
+							<div class="col-xs-6">
+								<h6>Replacement Tags</h6>
+								<button type="button" ng-repeat="token in tokens" class="btn btn-success btn-sm btn-token" ng-click="insertToken('{'+token+'}')">{{token}}</button>
+							</div>
+
+							<div class="col-xs-6">
+								<h6>Number Pad</h6>
+								<table class="table maths">
+									<tbody>
+									<tr>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('%')">%</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken(' / ')">/</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken(' * ')">*</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken(' - ')">-</button>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('7')">7</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('8')">8</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('9')">9</button>
+										</td>
+										<td class="tall" rowspan="2">
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken(' + ')">+</button>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('4')">4</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('5')">5</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('6')">6</button>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('1')">1</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('2')">2</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('3')">3</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('( ')">(</button>
+										</td>
+									</tr>
+									<tr>
+										<td colspan="2">
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('0')">0</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken('.')">.</button>
+										</td>
+										<td>
+											<button type="button" class="btn btn-success btn-block btn-sm btn-token" ng-click="insertToken(' )')">)</button>
+										</td>
+									</tr>
+									</tbody>
+								</table>
+							</div>
+						</div>
+					</tab>
+					<tab heading="Test">
+						<div class="tab-wrapper clearfix">
+							<div class="col-xs-5">
+								<h6>Sample Values</h6>
+
+								<div class="form-group" ng-repeat="(key, token) in formulaScope.q">
+									<label class="control-label col-xs-5">{{token.label}}</label>
+
+									<div class="col-xs-7">
+										<input type="number" class="form-control" ng-model="token.value" placeholder="Test Value">
+									</div>
+								</div>
+							</div>
+							<div class="col-xs-5 col-xs-offset-2">
+								<h6>Result</h6>
+
+								<div class="form-group">
+									<label class="control-label col-xs-5">Result</label>
+
+									<div class="col-xs-7">
+										<input type="number" class="form-control" placeholder="Result" value="{{evalFormula() | budgetValue}}" disabled>
+									</div>
+								</div>
+							</div>
+						</div>
+					</tab>
+					<tab heading="Help">
+					</tab>
+				</tabset>
+			</div>
+		</div>
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="ok()" ng-disabled="invalidFormula">OK</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+</div>

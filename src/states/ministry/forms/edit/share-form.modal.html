@@ -1,0 +1,31 @@
+<div>
+	<div class="modal-header">
+		<h3 class="modal-title" translate>Share this Form with other Ministries</h3>
+	</div>
+	<div class="modal-body">
+		<form name="approvalForm">
+
+			<p translate>Choose the Ministries to share this form with.</p>
+
+			<div class="container-fuild form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-3 control-label">Ministries</label>
+
+					<div class="col-sm-9">
+						<ui-select multiple ng-model="selected.ministries">
+							<ui-select-match placeholder="Select Ministries...">{{$item.name}}</ui-select-match>
+							<ui-select-choices repeat="ministry.ministry_id as ministry in ministries | propsFilter: {name:$select.search}">
+								<div ng-bind-html="ministry.name | highlight: $select.search"></div>
+							</ui-select-choices>
+						</ui-select>
+					</div>
+				</div>
+			</div>
+		</form>
+
+	</div>
+	<div class="modal-footer">
+		<button class="btn btn-primary" ng-click="share()" ng-disabled="!selected.ministries.length">Share Form</button>
+		<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+	</div>
+</div>

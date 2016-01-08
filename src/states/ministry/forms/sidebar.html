@@ -1,0 +1,17 @@
+<div>
+	<div class="btn-group btn-group-justified">
+		<a class="btn btn-success" ui-sref-active="active" ui-sref="budgets">Budgets</a>
+		<a class="btn btn-success" ui-sref-active="active" ui-sref="forms">Forms</a>
+	</div>
+
+	<div class="content">
+		<a class="btn btn-info btn-block"
+		   ui-sref="editForm({mpd_def_id: ''})"
+		   translate-comment="BUTTON - Create new form"
+		   translate>Create a new Form</a>
+
+		<mpd-form-list forms="forms | filter:globalActive | orderBy:'name'"
+					   title="{{'Ministry Forms' | translate}}"
+					   description="{{'These are the forms assigned to the ministry. Forms labeled as active are available to staff to create budgets.' | translate}}"></mpd-form-list>
+	</div>
+</div>

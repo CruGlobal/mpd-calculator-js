@@ -1,0 +1,28 @@
+<div>
+	<div class="btn-group btn-group-justified" ng-if="isAdmin">
+		<a class="btn btn-success" ui-sref-active="active" ui-sref="budgets">Budgets</a>
+		<a class="btn btn-success" ui-sref-active="active" ui-sref="forms">Forms</a>
+	</div>
+
+	<div class="content">
+		<a class="btn btn-primary btn-block"
+		   ui-sref="createBudget"
+		   translate-comment="BUTTON - Create new budget"
+		   translate>Create a Budget</a>
+
+		<mpd-budget-list
+			budgets="budgets | filter:{approved_by: user.person_id, status: 'Submitted'}:true | orderBy:'period_start'"
+			title="{{'Approver Budgets' | translate}}"
+			show-person-name="true">
+		</mpd-budget-list>
+
+		<mpd-budget-list budgets="budgets | filter:{person_id: user.person_id}:true | orderBy:'period_start'" title="{{'My Budgets' | translate}}"></mpd-budget-list>
+
+		<mpd-budget-list
+			ng-if="isAdmin"
+			budgets="budgets | filter:{person_id: user.person_id}:notEqual | orderBy:'period_start'"
+			title="{{'Staff Budgets' | translate}}"
+			show-person-name="true">
+		</mpd-budget-list>
+	</div>
+</div>

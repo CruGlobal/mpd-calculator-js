@@ -1,0 +1,80 @@
+<div>
+	<div class="page-header">
+		<div class="clearfix">
+			<h3>
+				<button type="button" class="btn btn-default btn-sm" ui-sref="budgets">
+					<span class="glyphicon glyphicon-arrow-left"></span>
+				</button>
+				<span translate>Edit a Budget</span>
+			</h3>
+		</div>
+	</div>
+
+	<form name="editForm">
+		<fieldset ng-disabled="isSavingBudget">
+			<mpd-budget ng-model="budget" mpd-budget-form="form" mpd-budget-editable="isEditable">
+				<div class="row budget-actions">
+					<div class="col-xs-12">
+
+						<button type="button"
+								class="btn btn-warning"
+								ng-click="cancel()"
+								translate>Cancel
+						</button>
+
+						<button type="button"
+								class="btn btn-danger"
+								ng-if="isAdmin"
+								ng-click="deleteBudget()"
+								translate>Delete Budget
+						</button>
+
+						<!-- Right Buttons -->
+						<button type="button"
+								class="btn btn-info pull-right"
+								ng-if="isEditable"
+								ng-click="saveBudget()"
+								ng-disabled="editForm.$pristine"
+								translate>Save Changes
+						</button>
+
+						<button type="button"
+								class="btn btn-success pull-right"
+								ng-if="budget.status =='Draft'"
+								ng-click="requestApproval()"
+								translate>Submit for Approval
+						</button>
+
+						<button type="button"
+								class="btn btn-success pull-right"
+								ng-if="budget.status == 'Submitted' && ( isAdmin || isApprover )"
+								ng-click="approveBudget()"
+								translate>Approve Budget
+						</button>
+
+						<button type="button"
+								class="btn btn-success pull-right"
+								ng-if="budget.status == 'Approved' && isAdmin"
+								ng-click="processBudget()"
+								translate>Mark as Processed
+						</button>
+
+						<button type="button"
+								class="btn btn-danger pull-right"
+								ng-if="budget.status == 'Processed' && isAdmin"
+								ng-click="rejectBudget()"
+								translate>Reject Budget
+						</button>
+
+					</div>
+					<!--
+					<div class="col-xs-3 pull-right" ng-if="isAdmin || isOwner">
+						<button type="button" class="btn btn-danger btn-block" ng-click="deleteBudget()" translate>Delete</button>
+					</div>
+					-->
+
+				</div>
+			</mpd-budget>
+		</fieldset>
+	</form>
+</div>
