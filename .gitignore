@@ -10,4 +10,5 @@ bower_components/
 
 # Project
 dist
+.tmp
 
