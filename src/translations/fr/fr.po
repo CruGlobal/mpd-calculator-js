@@ -1,0 +1,298 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: VERSION\n"
+"POT-Creation-Date: 2016-04-06 11:52+0000\n"
+"PO-Revision-Date: 2016-04-06 11:52+0000\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+#: components/mpd-form/mpd-form.html:13
+#: components/mpd-form/mpd-form.html:64
+msgid "Actions"
+msgstr "Actions"
+
+#: states/ministry/budgets/budget/edit/edit.html:48
+msgid "Approve Budget"
+msgstr "Valider le budget"
+
+#: components/mpd-budget-list/mpd-budget-list.html:19
+#: components/mpd-budget/mpd-budget.html:12
+msgid "Approved"
+msgstr "Validé"
+
+#: components/mpd-budget/mpd-budget.html:30
+msgid "Approved By"
+msgstr "Validé par"
+
+#: components/mpd-budget-list/mpd-budget-list.html:21
+#: components/mpd-budget/mpd-budget.html:14
+msgid "Cancelled"
+msgstr "Annulé"
+
+#. Select Ministry button label
+#: states/select/select.html:14
+msgid "Choose"
+msgstr "Choisir"
+
+#: components/mpd-form/mpd-form.html:106
+msgid "Computed"
+msgstr "Calculé"
+
+#. BUTTON - Create new budget
+#: states/ministry/budgets/create/create.html:11
+#: states/ministry/budgets/sidebar.html:8
+msgid "Create a Budget"
+msgstr "Créer un budget"
+
+#. BUTTON - Create new form
+#: states/ministry/forms/sidebar.html:8
+msgid "Create a new Form"
+msgstr "Créer une formulaire"
+
+#: components/mpd-budget/mpd-budget.html:182
+msgid "Current Support"
+msgstr "Soutien actuel"
+
+#: states/ministry/budgets/budget/edit/delete.modal.html:3
+msgid "Delete a Budget"
+msgstr "Supprimer un budget"
+
+#: states/ministry/budgets/budget/edit/edit.html:25
+msgid "Delete Budget"
+msgstr "Supprimer le budget"
+
+#: components/mpd-budget-list/mpd-budget-list.html:17
+#: components/mpd-budget/mpd-budget.html:10
+msgid "Draft"
+msgstr "Brouillon"
+
+#: states/ministry/budgets/budget/edit/edit.html:8
+msgid "Edit a Budget"
+msgstr "Editer un budget"
+
+#: states/ministry/forms/edit/edit-form.html:4
+msgid "Edit a Form"
+msgstr "Editer une formulaire"
+
+#: states/ministry/budgets/budget/edit/approve.modal.html:18
+msgid "Email Address"
+msgstr "Adresse mail"
+
+#: components/mpd-budget/question.html:7
+msgid "GROSS"
+msgstr "BRUT"
+
+#: states/ministry/budgets/budget/edit/edit.html:55
+msgid "Mark as Processed"
+msgstr "Marquer comme traité"
+
+#: states/ministry/change-ministry.html:12
+#: states/select/select.html:8
+msgid "Ministry"
+msgstr "Ministère"
+
+#: components/mpd-form/mpd-form.html:114
+msgid "Options"
+msgstr "Options"
+
+#: components/mpd-form/mpd-form.html:38
+msgid "Name of the budget form."
+msgstr "Nom du formulaire de budget."
+
+#: states/ministry/forms/sidebar.html:15
+msgid "Ministry Forms"
+msgstr "Formulaires du ministère"
+
+#: components/mpd-budget/mpd-budget.html:67
+#: components/mpd-budget/question.html:16
+#: components/mpd-budget/question.html:34
+#: components/mpd-budget/question.html:46
+#: components/mpd-budget/section.html:11
+msgid "Monthly"
+msgstr "Mensuel"
+
+#: components/mpd-form/mpd-form.html:102
+msgid "Monthly GROSS"
+msgstr "BRUT mensuel"
+
+#: components/mpd-budget/question.html:25
+#: components/mpd-budget/question.html:40
+#: components/mpd-form/mpd-form.html:103
+msgid "Monthly NET"
+msgstr "NET mensuel"
+
+#: components/mpd-budget/question.html:54
+msgid "Monthy Gross"
+msgstr "Brut mensuel"
+
+#: states/ministry/forms/sidebar.html:13
+msgid "Global Forms"
+msgstr "Formulaires globals"
+
+#: states/app.html:10
+msgid "MPD Calculator"
+msgstr "MPD Calculator"
+
+#: components/mpd-budget/mpd-budget.html:128
+msgid "MPD Goal"
+msgstr "But de DEP"
+
+#: components/mpd-form/mpd-form.html:119
+msgid "More"
+msgstr "Plus"
+
+#: states/ministry/budgets/sidebar.html:19
+msgid "My Budgets"
+msgstr "Mes budgets"
+
+#: components/mpd-form/mpd-form.html:29
+msgid "Name"
+msgstr "Nom"
+
+#: states/ministry/budgets/budget/edit/delete.modal.html:8
+msgid "Please confirm you want to delete this budget."
+msgstr "Veuillez confirmer que vous voulez supprimer ce budget."
+
+#: states/ministry/budgets/budget/edit/reject.modal.html:8
+msgid "Please confirm you want to reject this budget."
+msgstr "Veuillez confirmer que vous voulez rejeter ce budget."
+
+#: states/ministry/budgets/budget/edit/approve.modal.html:8
+msgid "Please provide the Email address of the person who should approve this budget."
+msgstr "Veuillez saisir l'adresse mail de la personne qui doit valider ce budget."
+
+#: components/mpd-budget-list/mpd-budget-list.html:20
+#: components/mpd-budget/mpd-budget.html:13
+msgid "Processed"
+msgstr "Traité"
+
+#: components/mpd-budget/mpd-budget.html:41
+msgid "Processed By"
+msgstr "Traité par"
+
+#: components/mpd-form/mpd-form.html:124
+#: components/mpd-form/mpd-form.html:69
+msgid "Question"
+msgstr "Question"
+
+#: states/ministry/budgets/budget/edit/reject.modal.html:3
+msgid "Reject a Budget"
+msgstr "Rejeter un budget"
+
+#: components/mpd-form/mpd-form.html:93
+msgid "Question Title"
+msgstr "Titre de la question"
+
+#: states/ministry/budgets/budget/edit/edit.html:62
+msgid "Reject Budget"
+msgstr "Rejeter le budget"
+
+#: states/ministry/budgets/budget/edit/reject.modal.html:6
+msgid "Rejecting this budget will return it to a Draft. The person will have the ability to make modifications and re-submit the budget."
+msgstr "Rejeter ce budget le retournera en brouillon. La personne aura la possibilité d'apporter des modifications et soumettre le budget à nouveau."
+
+#: states/ministry/budgets/budget/edit/edit.html:33
+msgid "Save Changes"
+msgstr "Enregistrer"
+
+#: states/ministry/budgets/create/create.html:22
+msgid "Save Draft"
+msgstr "Enregistrer le brouillon"
+
+#: components/mpd-form/mpd-form.html:18
+#: components/mpd-form/mpd-form.html:74
+msgid "Section"
+msgstr "Section"
+
+#: components/mpd-form/mpd-form.html:54
+msgid "Section Title"
+msgstr "Titre de la section"
+
+#: states/ministry/budgets/sidebar.html:24
+msgid "Staff Budgets"
+msgstr "Budgets des équipiers"
+
+#: components/mpd-budget/mpd-budget.html:22
+msgid "Start Date"
+msgstr "Date de démarrage"
+
+#: states/ministry/budgets/budget/edit/approve.modal.html:3
+msgid "Submit Budget for Approval"
+msgstr "Envoyer ce budget pour validation"
+
+#: states/ministry/budgets/budget/edit/edit.html:41
+msgid "Submit for Approval"
+msgstr "Envoyer pour validation"
+
+#: components/mpd-budget-list/mpd-budget-list.html:18
+#: components/mpd-budget/mpd-budget.html:11
+msgid "Submitted"
+msgstr "Envoyé"
+
+#: components/mpd-budget/mpd-budget.html:155
+msgid "Subsidy"
+msgstr "Subvention"
+
+#: components/mpd-budget/mpd-budget.html:74
+msgid "Subtotal"
+msgstr "Total"
+
+#: components/mpd-budget/mpd-budget.html:6
+msgid "Support Budget for <strong>{{budget.person_name}}</strong>"
+msgstr "Budget de <strong>{{budget.person_name}}</strong>"
+
+msgid "These are the forms assigned to the ministry. Forms labeled as active are available to staff to create budgets."
+msgstr "Ce sont les formes assignées au ministère. Formulaires étiquetés comme actif sont disponibles au personnel pour créer des budgets."
+
+#: states/app.html:5
+msgid "Toggle navigation"
+msgstr "Basculer la navigation"
+
+#: components/mpd-budget/mpd-budget.html:108
+#: components/mpd-budget/mpd-budget.html:118
+#: components/mpd-budget/mpd-budget.html:135
+#: components/mpd-budget/mpd-budget.html:145
+#: components/mpd-budget/mpd-budget.html:162
+#: components/mpd-budget/mpd-budget.html:172
+#: components/mpd-budget/mpd-budget.html:189
+#: components/mpd-budget/mpd-budget.html:202
+#: components/mpd-budget/mpd-budget.html:219
+#: components/mpd-budget/mpd-budget.html:229
+#: components/mpd-budget/mpd-budget.html:246
+#: components/mpd-budget/mpd-budget.html:256
+#: components/mpd-budget/mpd-budget.html:81
+#: components/mpd-budget/mpd-budget.html:91
+#: components/mpd-budget/section.html:25
+#: components/mpd-budget/section.html:35
+msgid "Total"
+msgstr "Total"
+
+#: components/mpd-budget/mpd-budget.html:212
+msgid "Total to Raise"
+msgstr "Total à chercher"
+
+#: components/mpd-budget/question.html:65
+#: components/mpd-budget/question.html:77
+#: components/mpd-budget/question.html:95
+msgid "Yearly"
+msgstr "Annuel"
+
+#: components/mpd-budget/question.html:103
+msgid "Yearly Gross"
+msgstr "Brut annuel"
+
+#: components/mpd-form/mpd-form.html:104
+msgid "Yearly GROSS"
+msgstr "Brut annuel"
+
+#: components/mpd-budget/question.html:71
+#: components/mpd-budget/question.html:86
+#: components/mpd-form/mpd-form.html:105
+msgid "Yearly NET"
+msgstr "NET annuel"
+

@@ -1,11 +1,13 @@
 'use strict';
 
-var gulp        = require( 'gulp' ),
-	path        = require( 'path' ),
-	del         = require( 'del' ),
-	crypto      = require( 'crypto' ),
-	url         = require( 'url' ),
-	request     = require( 'request' );
+var gulp = require('gulp'),
+	path = require('path'),
+	del = require('del'),
+	crypto = require('crypto'),
+	url = require('url'),
+	request = require('request'),
+	    fs= require('fs');
+    //download    = require("gulp-download");
 
 var $ = require('gulp-load-plugins')({
 	pattern: ['gulp-*']
@@ -47,6 +49,28 @@ function uploadToOneSky() {
 
 	return require( 'event-stream' ).map( uploadPOTFile );
 }
+
+function downloadFromOneSky() {
+    var onesky = require('./onesky.json'),
+		ts = Math.floor(new Date() / 1000);
+    var options = {
+        url: url.format({
+            protocol: 'https',
+            host: 'platform.api.onesky.io',
+            pathname: '/1/projects/' + onesky.project_id + '/translations',
+            query: {
+                api_key: onesky.api_key,
+                timestamp: ts,
+                dev_hash: crypto.createHash('md5').update(ts + onesky.api_secret).digest('hex'),
+                locale: 'fr',
+                source_file_name: 'mpd-calculator.pot',
+                export_file_name: 'fr.po'
+            }
+        })
+    }
+    request.get(options).pipe(fs.createWriteStream('src/translations/fr/fr.po'));
+}
+
 
 gulp.task( 'clean', function ( callback ) {
 	del( ['dist', '.tmp'], callback );
@@ -148,7 +172,7 @@ gulp.task( 'pot', function () {
 		.pipe( gulp.dest( 'src/languages/' ) );
 } );
 
-gulp.task( 'onesky', ['pot'], function () {
+gulp.task( 'oneskyup', ['pot'], function () {
 	return gulp.src( 'src/languages/mpd-calculator.pot' )
 		.pipe( uploadToOneSky() );
 } );
@@ -156,8 +180,12 @@ gulp.task( 'onesky', ['pot'], function () {
 gulp.task( 'po', function () {
 	return gulp.src( 'src/translations/**/*.po' )
 		.pipe($.angularGettext.compile( {
-			module: 'testing'
-//			format: 'json'
+//			module: 'testing'
+			format: 'json'
 		} ) )
 		.pipe( gulp.dest( 'src/translations/' ) );
-} );
+});
+
+gulp.task( 'oneskydown', function () {
+    downloadFromOneSky();
+});
