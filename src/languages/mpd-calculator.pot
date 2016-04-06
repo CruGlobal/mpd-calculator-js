@@ -62,6 +62,10 @@ msgstr ""
 msgid "An error occurred while submitting the budget. Please try again."
 msgstr ""
 
+#: index.html:60
+msgid "Application Loading &hellip;"
+msgstr ""
+
 #: states\ministry\budgets\budget\edit\edit.html:48
 msgid "Approve Budget"
 msgstr ""

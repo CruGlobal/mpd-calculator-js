@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2016-04-06 11:52+0000\n"
-"PO-Revision-Date: 2016-04-06 11:52+0000\n"
+"POT-Creation-Date: 2016-04-06 13:02+0000\n"
+"PO-Revision-Date: 2016-04-06 13:02+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -10,6 +10,9 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
+msgid "Application Loading &hellip;"
+msgstr "Chargement... &hellip;"
 
 #: components/mpd-form/mpd-form.html:13
 #: components/mpd-form/mpd-form.html:64
