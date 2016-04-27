@@ -218,7 +218,7 @@ gulp.task('po', ['oneskydown'], function () {
 		.pipe(gulp.dest('src/languages/'));
 });
 
-gulp.task( 'languages', function () {
+gulp.task('languages', ['clean'], function () {
 	return gulp.src( ['src/languages/**/*.json'] )
 		.pipe( gulp.dest( 'dist/languages' ) );
 } );
