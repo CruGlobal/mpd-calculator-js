@@ -29,7 +29,7 @@
 
 	module.run(function ($log, $rootScope, $location, gettextCatalog) {
 	    gettextCatalog.setCurrentLanguage("fr");
-	    gettextCatalog.loadRemote("translations/fr/fr.json");
+	    gettextCatalog.loadRemote("languages/fr.json");
 		// Configure application for use in iFrame
 		if ( typeof window.parent !== 'undefined' ) {
 			var parentHash = window.parent.location.hash;
