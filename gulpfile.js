@@ -68,7 +68,7 @@ function downloadFromOneSky() {
             }
         })
     }
-    request.get(options).pipe(fs.createWriteStream('src/translations/fr/fr.po'));
+    request.get(options).pipe(fs.createWriteStream('src/languages/fr.po'));
 }
 
 
@@ -178,12 +178,12 @@ gulp.task( 'oneskyup', ['pot'], function () {
 } );
 
 gulp.task( 'po', function () {
-	return gulp.src( 'src/translations/**/*.po' )
+	return gulp.src( 'src/languages/*.po' )
 		.pipe($.angularGettext.compile( {
 //			module: 'testing'
 			format: 'json'
 		} ) )
-		.pipe( gulp.dest( 'src/translations/' ) );
+		.pipe(gulp.dest('src/languages/'));
 });
 
 gulp.task( 'oneskydown', function () {
