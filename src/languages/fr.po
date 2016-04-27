@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2016-04-27 10:02+0000\n"
-"PO-Revision-Date: 2016-04-27 10:02+0000\n"
+"POT-Creation-Date: 2016-04-27 14:35+0000\n"
+"PO-Revision-Date: 2016-04-27 14:35+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgid "Actions"
 msgstr "Actions"
 
 msgid "Application Loading &hellip;"
-msgstr "Chargement... &hellip;"
+msgstr "Chargement &hellip;"
 
 #: states/ministry/budgets/budget/edit/edit.html:48
 msgid "Approve Budget"

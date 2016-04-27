@@ -62,7 +62,7 @@ msgstr ""
 msgid "An error occurred while submitting the budget. Please try again."
 msgstr ""
 
-#: index.html:61
+#: index.html:60
 msgid "Application Loading &hellip;"
 msgstr ""
 
@@ -475,10 +475,6 @@ msgstr ""
 
 #: components\mpd-budget\mpd-budget.html:209
 msgid "Total to Raise"
-msgstr ""
-
-#: index.html:60
-msgid "translatetest"
 msgstr ""
 
 #: components\mpd-budget\question.html:65

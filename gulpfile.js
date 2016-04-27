@@ -6,8 +6,7 @@ var gulp = require('gulp'),
 	crypto = require('crypto'),
 	url = require('url'),
 	request = require('request'),
-	    fs= require('fs');
-    //download    = require("gulp-download");
+	fs= require('fs');
 
 var $ = require('gulp-load-plugins')({
 	pattern: ['gulp-*']
@@ -50,33 +49,63 @@ function uploadToOneSky() {
 	return require( 'event-stream' ).map( uploadPOTFile );
 }
 
-function downloadFromOneSky() {
+function downloadFromOneSky(callback) {
     var onesky = require('./onesky.json'),
+		async = require('async'),
 		ts = Math.floor(new Date() / 1000);
-    var options = {
+
+    // Fetch list of project languages
+    request.get({
         url: url.format({
             protocol: 'https',
             host: 'platform.api.onesky.io',
-            pathname: '/1/projects/' + onesky.project_id + '/translations',
+            pathname: '/1/projects/' + onesky.project_id + '/languages',
             query: {
                 api_key: onesky.api_key,
                 timestamp: ts,
-                dev_hash: crypto.createHash('md5').update(ts + onesky.api_secret).digest('hex'),
-                locale: 'fr',
-                source_file_name: 'mpd-calculator.pot',
-                export_file_name: 'fr.po'
+                dev_hash: crypto.createHash('md5').update(ts + onesky.api_secret).digest('hex')
             }
         })
-    }
-    request.get(options).pipe(fs.createWriteStream('src/languages/fr.po'));
-}
+    },
+		function (error, response, body) {
+		    var languages = JSON.parse(body);
 
+		    // Do not download "is_base_language" true
+		    // Do not download "translation_progress" 0.0%
+		    // Download each language that "is_ready_to_publish"
+		    async.each(languages.data, function (language, cb) {
+		        if (language.is_base_language === true || language.translation_progress === '0.0%' || language.is_ready_to_publish === false) {
+		            cb();
+		        } else {
+		            var ts = Math.floor(new Date() / 1000),
+						options = {
+						    url: url.format({
+						        protocol: 'https',
+						        host: 'platform.api.onesky.io',
+						        pathname: '/1/projects/' + onesky.project_id + '/translations',
+						        query: {
+						            api_key: onesky.api_key,
+						            timestamp: ts,
+						            dev_hash: crypto.createHash('md5').update(ts + onesky.api_secret).digest('hex'),
+						            locale: language.code,
+						            source_file_name: 'mpd-calculator.pot',
+						            export_file_name: language.code + '.po'
+						        }
+						    })
+						};
+		            request
+						.get(options)
+						.pipe(fs.createWriteStream('src/languages/' + language.code + '.po').on('finish', cb))
+		        }
+		    }, callback);
+		})
+}
 
 gulp.task( 'clean', function ( callback ) {
 	del( ['dist', '.tmp'], callback );
 } );
 
-gulp.task( 'html', ['clean', 'bower', 'copyIframeResizer', 'copyShims', 'fonts', 'partials'], function () {
+gulp.task( 'html', ['clean', 'bower', 'copyIframeResizer', 'copyShims', 'fonts', 'partials', 'languages'], function () {
 	var partialsInjectFile = gulp.src('.tmp/partials/templateCacheHtml.js', { read: false });
 	var partialsInjectOptions = {
 		starttag: '<!-- inject:partials -->',
@@ -177,15 +206,19 @@ gulp.task( 'oneskyup', ['pot'], function () {
 		.pipe( uploadToOneSky() );
 } );
 
-gulp.task( 'po', function () {
-	return gulp.src( 'src/languages/*.po' )
-		.pipe($.angularGettext.compile( {
-//			module: 'testing'
-			format: 'json'
-		} ) )
+gulp.task( 'oneskydown', function ( callback ) {
+    downloadFromOneSky( callback );
+});
+
+gulp.task('po', ['oneskydown'], function () {
+    return gulp.src('src/languages/**/*.po')
+		.pipe($.angularGettext.compile({
+		    format: 'json'
+		}))
 		.pipe(gulp.dest('src/languages/'));
 });
 
-gulp.task( 'oneskydown', function () {
-    downloadFromOneSky();
-});
+gulp.task( 'languages', function () {
+	return gulp.src( ['src/languages/**/*.json'] )
+		.pipe( gulp.dest( 'dist/languages' ) );
+} );
