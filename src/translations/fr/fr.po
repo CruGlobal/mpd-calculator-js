@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2016-04-06 13:02+0000\n"
-"PO-Revision-Date: 2016-04-06 13:02+0000\n"
+"POT-Creation-Date: 2016-04-27 10:02+0000\n"
+"PO-Revision-Date: 2016-04-27 10:02+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -11,13 +11,13 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
 
-msgid "Application Loading &hellip;"
-msgstr "Chargement... &hellip;"
-
 #: components/mpd-form/mpd-form.html:13
 #: components/mpd-form/mpd-form.html:64
 msgid "Actions"
 msgstr "Actions"
+
+msgid "Application Loading &hellip;"
+msgstr "Chargement... &hellip;"
 
 #: states/ministry/budgets/budget/edit/edit.html:48
 msgid "Approve Budget"
@@ -55,7 +55,7 @@ msgstr "Créer un budget"
 #. BUTTON - Create new form
 #: states/ministry/forms/sidebar.html:8
 msgid "Create a new Form"
-msgstr "Créer une formulaire"
+msgstr "Créer un formulaire"
 
 #: components/mpd-budget/mpd-budget.html:182
 msgid "Current Support"
@@ -278,6 +278,9 @@ msgstr "Total"
 #: components/mpd-budget/mpd-budget.html:212
 msgid "Total to Raise"
 msgstr "Total à chercher"
+
+msgid "translatetest"
+msgstr "traduit en français !"
 
 #: components/mpd-budget/question.html:65
 #: components/mpd-budget/question.html:77
