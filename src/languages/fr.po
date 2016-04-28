@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: VERSION\n"
-"POT-Creation-Date: 2016-04-28 08:27+0000\n"
-"PO-Revision-Date: 2016-04-28 08:27+0000\n"
+"POT-Creation-Date: 2016-04-28 09:23+0000\n"
+"PO-Revision-Date: 2016-04-28 09:23+0000\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE TEAM <EMAIL@ADDRESS>\n"
 "Language: fr\n"
@@ -10,12 +10,6 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-
-msgid "Budgets"
-msgstr "Budgets"
-
-msgid "Forms"
-msgstr "Formulaires"
 
 #: components/mpd-form/mpd-form.html:13
 #: components/mpd-form/mpd-form.html:64
@@ -50,6 +44,9 @@ msgstr "Validé"
 #: components/mpd-budget/mpd-budget.html:30
 msgid "Approved By"
 msgstr "Validé par"
+
+msgid "Budgets"
+msgstr "Budgets"
 
 #: components/mpd-budget-list/mpd-budget-list.html:21
 #: components/mpd-budget/mpd-budget.html:14
@@ -104,6 +101,9 @@ msgstr "Editer une formulaire"
 #: states/ministry/budgets/budget/edit/approve.modal.html:18
 msgid "Email Address"
 msgstr "Adresse mail"
+
+msgid "Forms"
+msgstr "Formulaires"
 
 #: components/mpd-budget/question.html:7
 msgid "GROSS"
