@@ -20,7 +20,8 @@
 		}
 
 		this.$get = function () {
-			return {
+		    return {
+		        locale: config.locale,
 				api:    {
 					measurements: function ( path ) {
 						return apiUrl( config.api.measurements, path );

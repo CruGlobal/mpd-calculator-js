@@ -1,7 +1,7 @@
 ﻿(function (module) {
     'use strict';
 
-    module.run(function ($rootScope, gettextCatalog) {
+    module.run(function ($rootScope, gettextCatalog, Settings) {
         var loadLanguage = function (locale, locales) {
             if (locales.length === 0) {
                 gettextCatalog.setCurrentLanguage(locale);
@@ -40,7 +40,7 @@
                 }
             }
         });
-        //$rootScope.locale = "fr";
+        $rootScope.locale = Settings.locale;
     });
 
 })(angular.module('mpdCalculator'));
