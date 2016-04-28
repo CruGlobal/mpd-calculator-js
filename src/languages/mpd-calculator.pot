@@ -129,6 +129,11 @@ msgstr ""
 msgid "Budget successfully saved."
 msgstr ""
 
+#: states\ministry\budgets\sidebar.html:3
+#: states\ministry\forms\sidebar.html:3
+msgid "Budgets"
+msgstr ""
+
 #: components\mpd-form\mpd-form.html:181
 msgid "Calculated"
 msgstr ""
@@ -217,6 +222,11 @@ msgstr ""
 
 #: components\mpd-form\mpd-form.html:34
 msgid "Form Name"
+msgstr ""
+
+#: states\ministry\budgets\sidebar.html:4
+#: states\ministry\forms\sidebar.html:4
+msgid "Forms"
 msgstr ""
 
 #: components\mpd-form\mpd-form.html:217
