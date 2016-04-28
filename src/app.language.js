@@ -40,6 +40,7 @@
                 }
             }
         });
+        //$rootScope.locale = "fr";
     });
 
 })(angular.module('mpdCalculator'));
