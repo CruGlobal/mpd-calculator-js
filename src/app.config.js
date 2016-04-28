@@ -28,8 +28,6 @@
 	} );
 
 	module.run(function ($log, $rootScope, $location, gettextCatalog) {
-	    //gettextCatalog.setCurrentLanguage("es");
-	    //gettextCatalog.loadRemote("languages/es.json");
 		// Configure application for use in iFrame
 		if ( typeof window.parent !== 'undefined' ) {
 			var parentHash = window.parent.location.hash;
