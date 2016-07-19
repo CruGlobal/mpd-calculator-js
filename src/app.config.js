@@ -12,9 +12,9 @@
 	} );
 
 	// Configure HTTP interceptors
-	module.config( function ( $httpProvider ) {
-		$httpProvider.interceptors.push( 'Session' );
-	} );
+	//module.config( function ( $httpProvider ) {
+	//	$httpProvider.interceptors.push( 'Session' );
+	//} );
 
 	// Configure Growl
 	module.config( function ( growlProvider ) {

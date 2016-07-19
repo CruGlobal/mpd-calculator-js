@@ -13,7 +13,7 @@
 			},
 			resolve:     {
 				'session':    function ( $log, Session ) {
-					return Session.getSession();
+					return true;
 				},
 				'user':       function ( $log, $q, session ) {
 					var deferred = $q.defer();
