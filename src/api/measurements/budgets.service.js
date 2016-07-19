@@ -79,14 +79,16 @@
 						response: function ( response ) {
 							return transformBudgetResponse( response.resource );
 						}
-					}
+					},
+					headers: { 'Accepts': 'application/json' }
 				},
 				'query':  {
 					method: 'GET', isArray: true, interceptor: {
 						response: function ( response ) {
 							return angular.forEach( response.resource, transformBudgetResponse );
 						}
-					}
+					},
+					headers: { 'Accept': 'application/json' }
 				},
 				'save':   {method: 'POST', transformRequest: transformBudgetRequest},
 				'update': {
