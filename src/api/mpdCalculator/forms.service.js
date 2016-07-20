@@ -15,7 +15,7 @@
 			return angular.isObject( form ) ? angular.toJson( form ) : form;
 		};
 
-		return $resource( Settings.api.measurements( '/mpd_def/:mpd_def_id' ), {
+		return $resource(Settings.api.mpdCalculator('/mpd_def/:mpd_def_id'), {
 			mpd_def_id:  '@mpd_def_id',
 			ministry_id: '@ministry_id'
 		}, {
@@ -25,4 +25,4 @@
 			'update': {method: 'PUT', transformRequest: transformFormRequest}
 		} );
 	} );
-})( angular.module( 'mpdCalculator.api.measurements' ) );
+})(angular.module('mpdCalculator.api.mpdCalculator'));

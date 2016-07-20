@@ -58,7 +58,7 @@
 		// Dependencies
 		'ui.router',
 		'ngStorage',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 		'ui.bootstrap.typeahead',
 		'ui.bootstrap.tpls',
 

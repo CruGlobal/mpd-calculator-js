@@ -73,5 +73,5 @@
 		'ui.bootstrap.tpls',
 		'mpdCalculator.components.mpdBudget',
 		'mpdCalculator.states.budgets',
-		'mpdCalculator.api.measurements'
+		'mpdCalculator.api.mpdCalculator'
 	] ) );

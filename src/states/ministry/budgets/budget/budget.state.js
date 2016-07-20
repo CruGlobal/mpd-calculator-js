@@ -66,5 +66,5 @@
 		// Dependencies
 		'ui.router',
 		'mpdCalculator.states.budgets',
-		'mpdCalculator.api.measurements'
+		'mpdCalculator.api.mpdCalculator'
 	] ) );

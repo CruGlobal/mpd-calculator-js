@@ -26,7 +26,7 @@
 		'ui.bootstrap.modal',
 		'ui.bootstrap.tpls',
 		'mpdCalculator.components.mpdBudget',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 
 		// States
 		'mpdCalculator.states.budgets.budget'

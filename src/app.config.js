@@ -9,8 +9,17 @@
 	// Configure Debug Logging
 	module.config( function ( $logProvider, SettingsProvider ) {
 		$logProvider.debugEnabled( SettingsProvider.isDevelopment() );
-	} );
+	});
 
+    // Configure Cas Authenticated API service
+	module.config(function (casAuthApiProvider, SettingsProvider) {
+	    casAuthApiProvider.configure({
+	        requireAccessToken: true,
+	        cacheAccessToken: true,
+	        authenticationApiBaseUrl: SettingsProvider.casAuthApiBaseUrl(),
+	        ticketUrl: SettingsProvider.ticketUrl()
+	    });
+	});
 	// Configure HTTP interceptors
 	//module.config( function ( $httpProvider ) {
 	//	$httpProvider.interceptors.push( 'Session' );
@@ -44,6 +53,11 @@
 		$rootScope.$on( '$stateChangeError', function ( event, toState, toParams, fromState, fromParams, error ) {
 			$log.error( '$stateChangeError:', toState, toParams, error );
 		} );
-	} );
+	});
+
+    // Register managed API with casAuthApi
+	module.run(function (casAuthApi, Settings) {
+	    casAuthApi.addManagedApi(Settings.api.mpdCalculator());
+	});
 
 })( angular.module( 'mpdCalculator' ) );

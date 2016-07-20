@@ -3,12 +3,14 @@
 
 	angular.module( 'mpdCalculator', [
 		// Dependencies
+        'cas-auth-api',
 		'gettext',
 		'ui.router',
 		'ngSanitize',
 		'ui.select',
 		'mpdCalculator.settingsService',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
+        
 
 		// States
 		'mpdCalculator.states.budgets',

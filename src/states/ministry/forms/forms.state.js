@@ -35,7 +35,7 @@
 	.module( 'mpdCalculator.states.forms', [
 		// Dependencies
 		'ui.router',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 		'mpdCalculator.components.mpdFormList',
 
 		// States

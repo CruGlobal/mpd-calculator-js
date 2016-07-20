@@ -32,6 +32,6 @@
 		// Dependencies
 		'ui.router',
 		'ngStorage',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 		'angular-growl'
 	] ) );

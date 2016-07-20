@@ -13,7 +13,7 @@
 				}
 				else {
 					$injector.get( '$http' )
-						.get( Settings.api.measurements( '/token' ), {params: {st: Settings.ticket}} )
+						.get(Settings.api.mpdCalculator('/token'), { params: { st: Settings.ticket } })
 						.then( function ( response ) {
 							token = response.data.session_ticket;
 							session = response.data;
@@ -25,10 +25,10 @@
 				return deferred.promise;
 			},
 			request:       function ( config ) {
-				if ( config.url.indexOf( Settings.api.measurements() ) === 0 ) {
-					$log.debug( 'Measurements API Request', config );
+			    if (config.url.indexOf(Settings.api.mpdCalculator()) === 0) {
+			        $log.debug('mpdCalculator API Request', config);
 
-					// Enable HTTP Credentials for measurements API requests
+			        // Enable HTTP Credentials for mpdCalculator API requests
 					config.withCredentials = true;
 
 					// Add token to request as Authorization Bearer
@@ -43,4 +43,4 @@
 			}
 		}
 	} );
-})( angular.module( 'mpdCalculator.api.measurements' ) );
+})(angular.module('mpdCalculator.api.mpdCalculator'));

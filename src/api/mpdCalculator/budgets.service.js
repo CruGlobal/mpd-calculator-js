@@ -70,7 +70,7 @@
 				};
 				return decorateBudget( transformBudgetResponse( angular.extend( budget, defaults ) ), form );
 			},
-			api                     = $resource( Settings.api.measurements( '/mpd_budget/:mpd_budget_id' ), {
+			api = $resource(Settings.api.mpdCalculator('/mpd_budget/:mpd_budget_id'), {
 				mpd_budget_id: '@mpd_budget_id',
 				ministry_id:   '@ministry_id'
 			}, {
@@ -102,4 +102,4 @@
 		return api;
 	} );
 
-})( angular.module( 'mpdCalculator.api.measurements' ) );
+})(angular.module('mpdCalculator.api.mpdCalculator'));

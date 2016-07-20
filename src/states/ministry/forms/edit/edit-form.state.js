@@ -67,7 +67,7 @@
 		'ui.bootstrap.modal',
 		'ui.bootstrap.tpls',
 		'mpdCalculator.states.forms',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 		'mpdCalculator.components.mpdForm',
 		'mpdCalculator.components.mpdFormula'
 	] ) );

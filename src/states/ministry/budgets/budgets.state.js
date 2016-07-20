@@ -33,7 +33,7 @@
 	.module( 'mpdCalculator.states.budgets', [
 		// Dependencies
 		'ui.router',
-		'mpdCalculator.api.measurements',
+		'mpdCalculator.api.mpdCalculator',
 		'mpdCalculator.components.mpdBudgetList',
 
 		// States

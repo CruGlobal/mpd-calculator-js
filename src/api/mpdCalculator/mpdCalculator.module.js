@@ -1,7 +1,7 @@
 (function () {
 	'use strict';
 
-	angular.module( 'mpdCalculator.api.measurements', [
+	angular.module('mpdCalculator.api.mpdCalculator', [
 		// Dependencies
 		'mpdCalculator.settingsService',
 		'ngResource'
