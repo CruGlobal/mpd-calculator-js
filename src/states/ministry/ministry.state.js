@@ -32,22 +32,7 @@
 					return deferred.promise;
 				},
 				'isAdmin': function ( $log, session, ministry ) {
-					var flatten = function ( a, prop ) {
-						var items = [];
-						angular.forEach( a, function ( item ) {
-							items.push( item );
-							if ( item.hasOwnProperty( prop ) && angular.isArray( item[prop] ) ) {
-								items = items.concat( flatten( item[prop], prop ) );
-							}
-						} );
-						return items;
-					};
-					var assignments = _.where( flatten( session.assignments, 'sub_ministries' ), {ministry_id: ministry.ministry_id} ),
-						roles       = _.pluck( assignments, 'team_role' );
-					return _.contains( roles, 'leader' )
-						|| _.contains( roles, 'inherited_leader' )
-						|| _.contains( roles, 'admin' )
-						|| _.contains( roles, 'inherited_admin' );
+					return ministry.is_admin;
 				}
 			}
 		} );
