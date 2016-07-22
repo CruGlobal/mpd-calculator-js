@@ -40,6 +40,8 @@
                     case 'FRA':
                         $rootScope.locale = 'fr-FR';
                         break;
+                    default:
+                        $rootScope.locale = 'en';
                 }
             }
         });
