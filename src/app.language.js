@@ -40,6 +40,9 @@
                     case 'GUE':
                         $rootScope.locale = 'en-US';
                         break;
+                    case 'FRA':
+                        $rootScope.locale = 'fr-FR';
+                        break;
                 }
             }
         });
