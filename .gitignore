@@ -11,4 +11,4 @@ bower_components/
 # Project
 dist
 .tmp
-
+src/languages/*.po
